@@ -3,6 +3,7 @@ const routes = require("./src/network/routes");
 
 const app = express();
 
+app.use(express.json());
 routes(app);
 
 app.listen(3000, () => {
