@@ -5,7 +5,10 @@ const controller = require("./controller");
 const router = express.Router();
 
 router.get("/", function (req, res) {
-  response.success(req, res, "messages list");
+  controller
+    .getMessages()
+    .then((messages) => response.success(req, res, messages, 200))
+    .catch((error) => response.error(req, res, "Unexpected Error", 500, error));
 });
 
 router.post("/", function (req, res) {
