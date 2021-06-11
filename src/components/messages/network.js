@@ -18,4 +18,11 @@ router.post("/", function (req, res) {
     .catch((error) => response.error(req, res, "Bad request", 400, error));
 });
 
+router.patch("/:id", function (req, res) {
+  controller
+    .updateMessage(req.params.id, req.body.message)
+    .then((message) => response.success(req, res, message, 201))
+    .catch((error) => response.error(req, res, "Bad request", 400, error));
+});
+
 module.exports = router;
