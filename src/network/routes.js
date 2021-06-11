@@ -1,15 +1,8 @@
 const express = require("express");
-const response = require("./response");
-
-const testRouter = express.Router();
+const messagesRouter = require("../components/messages/network");
 
 const routes = (server) => {
-  server.use(
-    "/test",
-    testRouter.get("/", function (req, res) {
-      response.success(req, res, "Router was created successfully");
-    })
-  );
+  server.use("/messages", messagesRouter);
 };
 
 module.exports = routes;
