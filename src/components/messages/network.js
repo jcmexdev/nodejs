@@ -25,4 +25,11 @@ router.patch("/:id", function (req, res) {
     .catch((error) => response.error(req, res, "Bad request", 400, error));
 });
 
+router.delete("/:id", function (req, res) {
+  controller
+    .deleteMessage(req.params.id)
+    .then((deletedMessage) => response.success(req, res, deletedMessage))
+    .catch((error) => response.error(req, res, "Not found", 404, error));
+});
+
 module.exports = router;

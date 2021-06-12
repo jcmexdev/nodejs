@@ -19,8 +19,18 @@ async function update(id, message) {
   return newMessage;
 }
 
+async function remove(id) {
+  const foundMessage = await Model.findOne({ _id: id });
+  if (!foundMessage) {
+    throw new Error("Message was not found");
+  }
+  foundMessage.delete();
+  return id;
+}
+
 module.exports = {
   create,
   all,
   update,
+  remove,
 };
