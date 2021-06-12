@@ -9,7 +9,7 @@ async function create(message) {
  * @returns {Array} messages list
  */
 async function all() {
-  return await Model.find();
+  return await Model.find().populate("user");
 }
 
 async function update(id, message) {
