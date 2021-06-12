@@ -31,8 +31,18 @@ const updateMessage = (messageId, newMessage) => {
   });
 };
 
+const deleteMessage = (messageId) => {
+  return new Promise((resolve, reject) => {
+    if (!messageId) {
+      reject("Invalid Data");
+    }
+    resolve(store.remove(messageId));
+  });
+};
+
 module.exports = {
   addMessage,
   getMessages,
   updateMessage,
+  deleteMessage,
 };
