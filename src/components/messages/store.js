@@ -8,8 +8,8 @@ async function create(message) {
  * Return all messages
  * @returns {Array} messages list
  */
-async function all() {
-  return await Model.find().populate("user");
+async function all(filter) {
+  return await Model.find(filter).populate("user");
 }
 
 async function update(id, message) {

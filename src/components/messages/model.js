@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
+  chat: {
+    type: mongoose.ObjectId,
+    ref: "Chats",
+    required: true,
+  },
   user: {
     type: mongoose.ObjectId,
     ref: "Users",
