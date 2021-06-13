@@ -5,6 +5,7 @@ const chatSchema = new mongoose.Schema({
     {
       type: mongoose.ObjectId,
       ref: "Users",
+      required: true,
     },
   ],
 });
