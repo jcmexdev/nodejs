@@ -1,8 +1,12 @@
 const Model = require("./model");
 
-async function all() {
+async function all(userId) {
   try {
-    return await Model.find().populate("users");
+    let filter = {};
+    if (userId) {
+      filter = { users: userId };
+    }
+    return await Model.find(filter).populate("users");
   } catch (error) {
     throw new Error(error);
   }

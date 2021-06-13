@@ -1,7 +1,11 @@
 const store = require("./store");
 
-function getChats() {
-  return Promise.resolve(store.all());
+async function getChats(userId = null) {
+  try {
+    return await store.all(userId);
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 function createChat(users) {
